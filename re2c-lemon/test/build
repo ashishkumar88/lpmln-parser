@@ -1,0 +1,17 @@
+./lemon lpmln_parser.y
+
+rm -f output.mln
+
+re2c -o lpmln_lexer.cc lpmln_lexer.re
+
+g++ -o lpmln_to_mln lpmln_to_mln.cc
+cat sample.lpmln
+
+echo 'Starting translation for sample.lpmln : '
+
+./lpmln_to_mln sample.lpmln sample_propositional_logic.mln
+
+echo 'Below is the generate file for sample.lpmln : '
+
+cat sample_propositional_logic.mln
+

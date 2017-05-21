@@ -1,0 +1,1284 @@
+State 0:
+          start ::= * statementlist
+          statementlist ::= * statementlist statement
+          statementlist ::= * statement
+          statement ::= * COMMENT NEWLINE
+          statement ::= * objectdeclaration NEWLINE
+          objectdeclaration ::= * identifier ASSIGN declarationbody
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          statement ::= * atom NEWLINE
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          softrule ::= * WEIGHT quantifier literal
+          softrule ::= * WEIGHT literal
+          softrule ::= * WEIGHT conjunct
+          softrule ::= * WEIGHT implications
+          hardrule ::= * quantifier literal PERIOD
+          hardrule ::= * literal PERIOD
+          hardrule ::= * conjunct PERIOD
+          hardrule ::= * implications PERIOD
+          statement ::= * softrule NEWLINE
+          statement ::= * hardrule NEWLINE
+          statement ::= * FILE_END
+
+                       COMMENT shift        76     
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                        WEIGHT shift        3      
+                      FILE_END shift-reduce 58     statement ::= FILE_END
+                         start accept
+                 statementlist shift        1      
+                     statement shift-reduce 29     statementlist ::= statement
+             objectdeclaration shift        75     
+                    identifier shift        41     
+                          term shift        64     
+                    quantifier shift        5      
+                          atom shift        58     
+                     predicate shift        69     
+                       literal shift        34     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        33     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift        50     
+                      softrule shift        49     
+                      hardrule shift        48     
+
+State 1:
+     (27) start ::= statementlist *
+          statementlist ::= statementlist * statement
+          statement ::= * COMMENT NEWLINE
+          statement ::= * objectdeclaration NEWLINE
+          objectdeclaration ::= * identifier ASSIGN declarationbody
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          statement ::= * atom NEWLINE
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          softrule ::= * WEIGHT quantifier literal
+          softrule ::= * WEIGHT literal
+          softrule ::= * WEIGHT conjunct
+          softrule ::= * WEIGHT implications
+          hardrule ::= * quantifier literal PERIOD
+          hardrule ::= * literal PERIOD
+          hardrule ::= * conjunct PERIOD
+          hardrule ::= * implications PERIOD
+          statement ::= * softrule NEWLINE
+          statement ::= * hardrule NEWLINE
+          statement ::= * FILE_END
+
+                             $ reduce       27     start ::= statementlist
+                       COMMENT shift        76     
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                        WEIGHT shift        3      
+                      FILE_END shift-reduce 58     statement ::= FILE_END
+                     statement shift-reduce 28     statementlist ::= statementlist statement
+             objectdeclaration shift        75     
+                    identifier shift        41     
+                          term shift        64     
+                    quantifier shift        5      
+                          atom shift        58     
+                     predicate shift        69     
+                       literal shift        34     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        33     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift        50     
+                      softrule shift        49     
+                      hardrule shift        48     
+
+State 2:
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          implications ::= quantifier * implications
+          softrule ::= WEIGHT quantifier * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                    identifier shift        47     
+                          term shift        64     
+                    quantifier shift        4      
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        35     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        39     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift-reduce 50     implications ::= quantifier implications
+
+State 3:
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          softrule ::= WEIGHT * quantifier literal
+          softrule ::= WEIGHT * literal
+          softrule ::= WEIGHT * conjunct
+          softrule ::= WEIGHT * implications
+
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                    identifier shift        47     
+                          term shift        64     
+                    quantifier shift        2      
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        37     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        36     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift-reduce 54     softrule ::= WEIGHT implications
+
+State 4:
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          implications ::= quantifier * implications
+
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                    identifier shift        47     
+                          term shift        64     
+                    quantifier shift        4      
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        38     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        39     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift-reduce 50     implications ::= quantifier implications
+
+State 5:
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          disjunct ::= * clause
+          disjunct ::= * conjunct DISJUNCTION literal
+          disjunct ::= * conjunct DISJUNCTION comparison
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+          implications ::= * literal IMPLICATION literal
+          implications ::= * conjunct IMPLICATION literal
+          implications ::= * conjunct IMPLICATION clause
+          implications ::= * literal IMPLICATION clause
+          implications ::= * disjunct IMPLICATION clause
+          implications ::= * disjunct IMPLICATION literal
+          implications ::= * quantifier implications
+          implications ::= quantifier * implications
+          hardrule ::= quantifier * literal PERIOD
+
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        6      
+                           NOT shift        11     
+                    identifier shift        47     
+                          term shift        64     
+                    quantifier shift        4      
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        32     
+                        clause shift        42     
+                      disjunct shift        53     
+                      conjunct shift        39     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+                  implications shift-reduce 50     implications ::= quantifier implications
+
+State 6:
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          clause ::= LPAREN * clause RPAREN
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          parenthesizedconjunct ::= LPAREN * conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        6      
+                           NOT shift        20     
+                    identifier shift        47     
+                          term shift        64     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        44     
+                        clause shift        40     
+                      conjunct shift        43     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+
+State 7:
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= * literal CONJUNCTION literal
+          conjunct ::= * conjunct CONJUNCTION literal
+          conjunct ::= * clause CONJUNCTION clause
+          conjunct ::= * conjunct CONJUNCTION clause
+          conjunct ::= * clause CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION literal
+          conjunct ::= * comparison CONJUNCTION clause
+          conjunct ::= * comparison CONJUNCTION comparison
+          conjunct ::= * conjunct CONJUNCTION comparison
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          parenthesizedconjunct ::= LPAREN * conjunct RPAREN
+          conjunct ::= * parenthesizedconjunct
+          conjunct ::= * NOT parenthesizedconjunct
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        6      
+                           NOT shift        20     
+                    identifier shift        47     
+                          term shift        64     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        44     
+                        clause shift        46     
+                      conjunct shift        43     
+                    comparison shift        61     
+         parenthesizedconjunct shift-reduce 49     conjunct ::= parenthesizedconjunct
+
+State 8:
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= comparison CONJUNCTION * literal
+          conjunct ::= comparison CONJUNCTION * clause
+          conjunct ::= comparison CONJUNCTION * comparison
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        47     
+                          term shift        64     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        59     
+                        clause shift        60     
+                    comparison shift-reduce 15     conjunct ::= comparison CONJUNCTION comparison
+
+State 9:
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          comparison ::= * term NOTEQUALS term
+          conjunct ::= conjunct CONJUNCTION * literal
+          conjunct ::= conjunct CONJUNCTION * clause
+          conjunct ::= conjunct CONJUNCTION * comparison
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        47     
+                          term shift        64     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        62     
+                        clause shift        63     
+                    comparison shift-reduce 16     conjunct ::= conjunct CONJUNCTION comparison
+
+State 10:
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          disjunct ::= conjunct DISJUNCTION * literal
+          disjunct ::= conjunct DISJUNCTION * comparison
+          comparison ::= * term NOTEQUALS term
+
+                            ID shift-reduce 37     identifier ::= ID
+                           NOT shift        23     
+                    identifier shift        47     
+                          term shift        64     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift-reduce 6      disjunct ::= conjunct DISJUNCTION literal
+                    comparison shift-reduce 7      disjunct ::= conjunct DISJUNCTION comparison
+
+State 11:
+          identifier ::= * ID
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          quantifier ::= NOT * quantifier
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= NOT * atom
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= NOT * parenthesizedconjunct
+
+                            ID shift-reduce 37     identifier ::= ID
+                         EXIST shift        22     
+                        FORALL shift        21     
+                        LPAREN shift        7      
+                           NOT shift        30     
+                    identifier shift        70     
+                    quantifier shift-reduce 42     quantifier ::= NOT quantifier
+                          atom shift-reduce 2      literal ::= NOT atom
+                     predicate shift        69     
+         parenthesizedconjunct shift-reduce 17     conjunct ::= NOT parenthesizedconjunct
+
+State 12:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          implications ::= disjunct IMPLICATION * clause
+          implications ::= disjunct IMPLICATION * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        51     
+                        clause shift        52     
+
+State 13:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          implications ::= conjunct IMPLICATION * literal
+          implications ::= conjunct IMPLICATION * clause
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        54     
+                        clause shift        55     
+
+State 14:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          implications ::= literal IMPLICATION * literal
+          implications ::= literal IMPLICATION * clause
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        56     
+                        clause shift        57     
+
+State 15:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          clause ::= LPAREN * clause RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        65     
+                        clause shift        45     
+
+State 16:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= * clause DISJUNCTION literal
+          clause ::= * literal DISJUNCTION literal
+          clause ::= * LPAREN clause RPAREN
+          conjunct ::= clause CONJUNCTION * clause
+          conjunct ::= clause CONJUNCTION * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        15     
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift        66     
+                        clause shift        67     
+
+State 17:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          conjunct ::= literal CONJUNCTION * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift-reduce 8      conjunct ::= literal CONJUNCTION literal
+
+State 18:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= literal DISJUNCTION * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift-reduce 4      clause ::= literal DISJUNCTION literal
+
+State 19:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= * atom
+          literal ::= * NOT atom
+          clause ::= clause DISJUNCTION * literal
+
+                            ID shift-reduce 37     identifier ::= ID
+                           NOT shift        23     
+                    identifier shift        70     
+                          atom shift-reduce 45     literal ::= atom
+                     predicate shift        69     
+                       literal shift-reduce 3      clause ::= clause DISJUNCTION literal
+
+State 20:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= NOT * atom
+          parenthesizedconjunct ::= * LPAREN conjunct RPAREN
+          conjunct ::= NOT * parenthesizedconjunct
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        7      
+                    identifier shift        70     
+                          atom shift-reduce 2      literal ::= NOT atom
+                     predicate shift        69     
+         parenthesizedconjunct shift-reduce 17     conjunct ::= NOT parenthesizedconjunct
+
+State 21:
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= FORALL * terms
+          quantifier ::= FORALL * LPAREN terms RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        25     
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift-reduce 39     quantifier ::= FORALL terms
+                          term shift        73     
+
+State 22:
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= EXIST * terms
+          quantifier ::= EXIST * LPAREN terms RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                        LPAREN shift        26     
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift-reduce 38     quantifier ::= EXIST terms
+                          term shift        73     
+
+State 23:
+          identifier ::= * ID
+          atom ::= * identifier
+          atom ::= * predicate LPAREN terms RPAREN
+          predicate ::= * identifier
+          literal ::= NOT * atom
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift        70     
+                          atom shift-reduce 2      literal ::= NOT atom
+                     predicate shift        69     
+
+State 24:
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+          atom ::= predicate LPAREN * terms RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift        68     
+                          term shift        73     
+
+State 25:
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= FORALL LPAREN * terms RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift        71     
+                          term shift        73     
+
+State 26:
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+          quantifier ::= EXIST LPAREN * terms RPAREN
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift        72     
+                          term shift        73     
+
+State 27:
+          terms ::= * term COMMA terms
+          terms ::= term COMMA * terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift-reduce 34     terms ::= term COMMA terms
+                          term shift        73     
+
+State 28:
+          declarationbody ::= LCURL * terms RCURL
+          terms ::= * term COMMA terms
+          terms ::= * term
+          term ::= * identifier
+          identifier ::= * ID
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                         terms shift        74     
+                          term shift        73     
+
+State 29:
+          term ::= * identifier
+          identifier ::= * ID
+          comparison ::= term NOTEQUALS * term
+
+                            ID shift-reduce 37     identifier ::= ID
+                    identifier shift-reduce 36     term ::= identifier
+                          term shift-reduce 47     comparison ::= term NOTEQUALS term
+
+State 30:
+          quantifier ::= * EXIST terms
+          quantifier ::= * FORALL terms
+          quantifier ::= * EXIST LPAREN terms RPAREN
+          quantifier ::= * FORALL LPAREN terms RPAREN
+          quantifier ::= * NOT quantifier
+          quantifier ::= NOT * quantifier
+
+                         EXIST shift        22     
+                        FORALL shift        21     
+                           NOT shift        30     
+                    quantifier shift-reduce 42     quantifier ::= NOT quantifier
+
+State 31:
+          objectdeclaration ::= identifier ASSIGN * declarationbody
+          declarationbody ::= * LCURL terms RCURL
+
+                         LCURL shift        28     
+               declarationbody shift-reduce 32     objectdeclaration ::= identifier ASSIGN declarationbody
+
+State 32:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+          implications ::= literal * IMPLICATION literal
+          implications ::= literal * IMPLICATION clause
+          hardrule ::= quantifier literal * PERIOD
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+                   IMPLICATION shift        14     
+                        PERIOD shift-reduce 55     hardrule ::= quantifier literal PERIOD
+
+State 33:
+          disjunct ::= conjunct * DISJUNCTION literal
+          disjunct ::= conjunct * DISJUNCTION comparison
+          conjunct ::= conjunct * CONJUNCTION literal
+          conjunct ::= conjunct * CONJUNCTION clause
+          conjunct ::= conjunct * CONJUNCTION comparison
+          implications ::= conjunct * IMPLICATION literal
+          implications ::= conjunct * IMPLICATION clause
+          hardrule ::= conjunct * PERIOD
+
+                   CONJUNCTION shift        9      
+                   DISJUNCTION shift        10     
+                   IMPLICATION shift        13     
+                        PERIOD shift-reduce 57     hardrule ::= conjunct PERIOD
+
+State 34:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+          implications ::= literal * IMPLICATION literal
+          implications ::= literal * IMPLICATION clause
+          hardrule ::= literal * PERIOD
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+                   IMPLICATION shift        14     
+                        PERIOD shift-reduce 56     hardrule ::= literal PERIOD
+
+State 35:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+          implications ::= literal * IMPLICATION literal
+          implications ::= literal * IMPLICATION clause
+     (51) softrule ::= WEIGHT quantifier literal *
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+                   IMPLICATION shift        14     
+                     {default} reduce       51     softrule ::= WEIGHT quantifier literal
+
+State 36:
+          disjunct ::= conjunct * DISJUNCTION literal
+          disjunct ::= conjunct * DISJUNCTION comparison
+          conjunct ::= conjunct * CONJUNCTION literal
+          conjunct ::= conjunct * CONJUNCTION clause
+          conjunct ::= conjunct * CONJUNCTION comparison
+          implications ::= conjunct * IMPLICATION literal
+          implications ::= conjunct * IMPLICATION clause
+     (53) softrule ::= WEIGHT conjunct *
+
+                   CONJUNCTION shift        9      
+                   DISJUNCTION shift        10     
+                   IMPLICATION shift        13     
+                     {default} reduce       53     softrule ::= WEIGHT conjunct
+
+State 37:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+          implications ::= literal * IMPLICATION literal
+          implications ::= literal * IMPLICATION clause
+     (52) softrule ::= WEIGHT literal *
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+                   IMPLICATION shift        14     
+                     {default} reduce       52     softrule ::= WEIGHT literal
+
+State 38:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+          implications ::= literal * IMPLICATION literal
+          implications ::= literal * IMPLICATION clause
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+                   IMPLICATION shift        14     
+
+State 39:
+          disjunct ::= conjunct * DISJUNCTION literal
+          disjunct ::= conjunct * DISJUNCTION comparison
+          conjunct ::= conjunct * CONJUNCTION literal
+          conjunct ::= conjunct * CONJUNCTION clause
+          conjunct ::= conjunct * CONJUNCTION comparison
+          implications ::= conjunct * IMPLICATION literal
+          implications ::= conjunct * IMPLICATION clause
+
+                   CONJUNCTION shift        9      
+                   DISJUNCTION shift        10     
+                   IMPLICATION shift        13     
+
+State 40:
+          clause ::= clause * DISJUNCTION literal
+          clause ::= LPAREN clause * RPAREN
+          conjunct ::= clause * CONJUNCTION clause
+          conjunct ::= clause * CONJUNCTION literal
+
+                   CONJUNCTION shift        16     
+                   DISJUNCTION shift        19     
+                        RPAREN shift-reduce 5      clause ::= LPAREN clause RPAREN
+
+State 41:
+          objectdeclaration ::= identifier * ASSIGN declarationbody
+     (36) term ::= identifier *
+      (1) atom ::= identifier *
+     (44) predicate ::= identifier *
+
+                        ASSIGN shift        31     
+                        LPAREN reduce       44     predicate ::= identifier
+                     NOTEQUALS reduce       36     term ::= identifier
+                     {default} reduce       1      atom ::= identifier
+
+State 42:
+          clause ::= clause * DISJUNCTION literal
+     (46) disjunct ::= clause *
+          conjunct ::= clause * CONJUNCTION clause
+          conjunct ::= clause * CONJUNCTION literal
+
+                   CONJUNCTION shift        16     
+                   DISJUNCTION shift        19     
+                     {default} reduce       46     disjunct ::= clause
+
+State 43:
+          conjunct ::= conjunct * CONJUNCTION literal
+          conjunct ::= conjunct * CONJUNCTION clause
+          conjunct ::= conjunct * CONJUNCTION comparison
+          parenthesizedconjunct ::= LPAREN conjunct * RPAREN
+
+                   CONJUNCTION shift        9      
+                        RPAREN shift-reduce 48     parenthesizedconjunct ::= LPAREN conjunct RPAREN
+
+State 44:
+          clause ::= literal * DISJUNCTION literal
+          conjunct ::= literal * CONJUNCTION literal
+
+                   CONJUNCTION shift        17     
+                   DISJUNCTION shift        18     
+
+State 45:
+          clause ::= clause * DISJUNCTION literal
+          clause ::= LPAREN clause * RPAREN
+
+                   DISJUNCTION shift        19     
+                        RPAREN shift-reduce 5      clause ::= LPAREN clause RPAREN
+
+State 46:
+          clause ::= clause * DISJUNCTION literal
+          conjunct ::= clause * CONJUNCTION clause
+          conjunct ::= clause * CONJUNCTION literal
+
+                   CONJUNCTION shift        16     
+                   DISJUNCTION shift        19     
+
+State 47:
+     (36) term ::= identifier *
+      (1) atom ::= identifier *
+     (44) predicate ::= identifier *
+
+                        LPAREN reduce       44     predicate ::= identifier
+                     NOTEQUALS reduce       36     term ::= identifier
+                     {default} reduce       1      atom ::= identifier
+
+State 48:
+          statement ::= hardrule * NEWLINE
+
+                       NEWLINE shift-reduce 26     statement ::= hardrule NEWLINE
+
+State 49:
+          statement ::= softrule * NEWLINE
+
+                       NEWLINE shift-reduce 25     statement ::= softrule NEWLINE
+
+State 50:
+          hardrule ::= implications * PERIOD
+
+                        PERIOD shift-reduce 24     hardrule ::= implications PERIOD
+
+State 51:
+          clause ::= literal * DISJUNCTION literal
+     (23) implications ::= disjunct IMPLICATION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       23     implications ::= disjunct IMPLICATION literal
+
+State 52:
+          clause ::= clause * DISJUNCTION literal
+     (22) implications ::= disjunct IMPLICATION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       22     implications ::= disjunct IMPLICATION clause
+
+State 53:
+          implications ::= disjunct * IMPLICATION clause
+          implications ::= disjunct * IMPLICATION literal
+
+                   IMPLICATION shift        12     
+
+State 54:
+          clause ::= literal * DISJUNCTION literal
+     (19) implications ::= conjunct IMPLICATION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       19     implications ::= conjunct IMPLICATION literal
+
+State 55:
+          clause ::= clause * DISJUNCTION literal
+     (20) implications ::= conjunct IMPLICATION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       20     implications ::= conjunct IMPLICATION clause
+
+State 56:
+          clause ::= literal * DISJUNCTION literal
+     (18) implications ::= literal IMPLICATION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       18     implications ::= literal IMPLICATION literal
+
+State 57:
+          clause ::= clause * DISJUNCTION literal
+     (21) implications ::= literal IMPLICATION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       21     implications ::= literal IMPLICATION clause
+
+State 58:
+          statement ::= atom * NEWLINE
+     (45) literal ::= atom *
+
+                       NEWLINE shift-reduce 0      statement ::= atom NEWLINE
+                     {default} reduce       45     literal ::= atom
+
+State 59:
+          clause ::= literal * DISJUNCTION literal
+     (13) conjunct ::= comparison CONJUNCTION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       13     conjunct ::= comparison CONJUNCTION literal
+
+State 60:
+          clause ::= clause * DISJUNCTION literal
+     (14) conjunct ::= comparison CONJUNCTION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       14     conjunct ::= comparison CONJUNCTION clause
+
+State 61:
+          conjunct ::= comparison * CONJUNCTION literal
+          conjunct ::= comparison * CONJUNCTION clause
+          conjunct ::= comparison * CONJUNCTION comparison
+
+                   CONJUNCTION shift        8      
+
+State 62:
+          clause ::= literal * DISJUNCTION literal
+      (9) conjunct ::= conjunct CONJUNCTION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       9      conjunct ::= conjunct CONJUNCTION literal
+
+State 63:
+          clause ::= clause * DISJUNCTION literal
+     (11) conjunct ::= conjunct CONJUNCTION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       11     conjunct ::= conjunct CONJUNCTION clause
+
+State 64:
+          comparison ::= term * NOTEQUALS term
+
+                     NOTEQUALS shift        29     
+
+State 65:
+          clause ::= literal * DISJUNCTION literal
+
+                   DISJUNCTION shift        18     
+
+State 66:
+          clause ::= literal * DISJUNCTION literal
+     (12) conjunct ::= clause CONJUNCTION literal *
+
+                   DISJUNCTION shift        18     
+                     {default} reduce       12     conjunct ::= clause CONJUNCTION literal
+
+State 67:
+          clause ::= clause * DISJUNCTION literal
+     (10) conjunct ::= clause CONJUNCTION clause *
+
+                   DISJUNCTION shift        19     
+                     {default} reduce       10     conjunct ::= clause CONJUNCTION clause
+
+State 68:
+          atom ::= predicate LPAREN terms * RPAREN
+
+                        RPAREN shift-reduce 43     atom ::= predicate LPAREN terms RPAREN
+
+State 69:
+          atom ::= predicate * LPAREN terms RPAREN
+
+                        LPAREN shift        24     
+
+State 70:
+      (1) atom ::= identifier *
+     (44) predicate ::= identifier *
+
+                        LPAREN reduce       44     predicate ::= identifier
+                     {default} reduce       1      atom ::= identifier
+
+State 71:
+          quantifier ::= FORALL LPAREN terms * RPAREN
+
+                        RPAREN shift-reduce 41     quantifier ::= FORALL LPAREN terms RPAREN
+
+State 72:
+          quantifier ::= EXIST LPAREN terms * RPAREN
+
+                        RPAREN shift-reduce 40     quantifier ::= EXIST LPAREN terms RPAREN
+
+State 73:
+          terms ::= term * COMMA terms
+     (35) terms ::= term *
+
+                         COMMA shift        27     
+                     {default} reduce       35     terms ::= term
+
+State 74:
+          declarationbody ::= LCURL terms * RCURL
+
+                         RCURL shift-reduce 33     declarationbody ::= LCURL terms RCURL
+
+State 75:
+          statement ::= objectdeclaration * NEWLINE
+
+                       NEWLINE shift-reduce 31     statement ::= objectdeclaration NEWLINE
+
+State 76:
+          statement ::= COMMENT * NEWLINE
+
+                       NEWLINE shift-reduce 30     statement ::= COMMENT NEWLINE
+
+----------------------------------------------------
+Symbols:
+    0: $:
+    1: CONJUNCTION
+    2: DISJUNCTION
+    3: COMMENT
+    4: NEWLINE
+    5: ASSIGN
+    6: LCURL
+    7: RCURL
+    8: COMMA
+    9: ID
+   10: EXIST
+   11: FORALL
+   12: LPAREN
+   13: RPAREN
+   14: NOT
+   15: NOTEQUALS
+   16: IMPLICATION
+   17: WEIGHT
+   18: PERIOD
+   19: FILE_END
+   20: error:
+   21: start: COMMENT ID EXIST FORALL LPAREN NOT WEIGHT FILE_END
+   22: statementlist: COMMENT ID EXIST FORALL LPAREN NOT WEIGHT FILE_END
+   23: statement: COMMENT ID EXIST FORALL LPAREN NOT WEIGHT FILE_END
+   24: objectdeclaration: ID
+   25: identifier: ID
+   26: declarationbody: LCURL
+   27: terms: ID
+   28: term: ID
+   29: quantifier: EXIST FORALL NOT
+   30: atom: ID
+   31: predicate: ID
+   32: literal: ID NOT
+   33: clause: ID LPAREN NOT
+   34: disjunct: ID LPAREN NOT
+   35: conjunct: ID LPAREN NOT
+   36: comparison: ID
+   37: parenthesizedconjunct: LPAREN
+   38: implications: ID EXIST FORALL LPAREN NOT
+   39: softrule: WEIGHT
+   40: hardrule: ID EXIST FORALL LPAREN NOT

@@ -1,0 +1,6 @@
+./lemon lpmln_parser.y
+
+re2c -o lpmln_lexer.cc lpmln_lexer.re
+
+g++ -o lpmln_to_mln lpmln_to_mln.cc
+

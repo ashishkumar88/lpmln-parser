@@ -1,0 +1,12 @@
+entity = {Jo, Bob}
+Bird
+ResidentBird
+MigratoryBird
+LivingBeing(entity)
+
+ResidentBird => Bird.
+MigratoryBird => Bird.
+!(ResidentBird ^ MigratoryBird).
+
+ResidentBird.
+
